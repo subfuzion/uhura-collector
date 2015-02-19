@@ -5,7 +5,7 @@ module.exports = function(app) {
   this.app = app;
 
   router.get('/', function(req, res) {
-    res.json({ service: pkg.name });
+    res.json({ service: pkg.name, version: pkg.version });
   });
 
   return router;

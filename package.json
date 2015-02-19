@@ -1,7 +1,7 @@
 {
-  "name": "atomiq",
+  "name": "atomiq-collector",
   "version": "0.0.1",
-  "description": "Node.js Microservice",
+  "description": "Simple collector for events published using Uhura protocol",
   "keywords": [
     "microservice",
     "service",
@@ -12,14 +12,13 @@
   "scripts": {
     "start": "node ./bin/server",
     "debug": "DEBUG=app node ./bin/server",
-    "nodemon": "DEBUG=app nodemon ./bin/server",
-    "test": "mocha --reporter spec --recursive"
+    "nodemon": "DEBUG=app nodemon ./bin/server"
   },
   "author": "Tony Pujals (http://twitter.com/subfuzion)",
   "license": "ISC",
-  "homepage": "https://github.com/atomiqjs/atomiq",
-  "repository": "https://github.com/atomiqjs/atomiq.git",
-  "bugs": "https://github.com/atomiqjs/atomiq/issues",
+  "homepage": "https://github.com/tonypujals/atomiq-collector",
+  "repository": "https://github.com/tonypujals/atomiq-collector.git",
+  "bugs": "https://github.com/tonypujals/atomiq-collector/issues",
   "devDependencies": {
     "mocha": "^2.1.0",
     "nock": "^0.59.1",
@@ -31,6 +30,7 @@
     "express": "^4.11.2",
     "hippie": "^0.3.0",
     "morgan": "^1.5.1",
-    "request": "^2.53.0"
+    "request": "^2.53.0",
+    "uhura": "^0.1.2"
   }
 }
