@@ -1,5 +1,5 @@
 {
-  "name": "atomiq-collector",
+  "name": "uhura-collector",
   "version": "0.0.1",
   "description": "Simple collector for events published using Uhura protocol",
   "keywords": [
@@ -16,9 +16,9 @@
   },
   "author": "Tony Pujals (http://twitter.com/subfuzion)",
   "license": "ISC",
-  "homepage": "https://github.com/tonypujals/atomiq-collector",
-  "repository": "https://github.com/tonypujals/atomiq-collector.git",
-  "bugs": "https://github.com/tonypujals/atomiq-collector/issues",
+  "homepage": "https://github.com/tonypujals/uhura-collector",
+  "repository": "https://github.com/tonypujals/uhura-collector.git",
+  "bugs": "https://github.com/tonypujals/uhura-collector/issues",
   "devDependencies": {
     "mocha": "^2.1.0",
     "nock": "^0.59.1",
