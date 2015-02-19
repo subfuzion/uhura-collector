@@ -1,5 +1,5 @@
-expressapi
-==========
+atomiq
+======
 
-A basic starter app for a service API.
+Node.js microservice
 

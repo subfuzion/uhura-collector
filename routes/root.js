@@ -1,9 +1,13 @@
 var router = require('express').Router(),
     pkg = require('../package.json');
 
-module.exports = router;
+module.exports = function(app) {
+  this.app = app;
 
-router.get('/', function(req, res) {
-  res.json({ service: pkg.name });
-});
+  router.get('/', function(req, res) {
+    res.json({ service: pkg.name });
+  });
+
+  return router;
+};
 

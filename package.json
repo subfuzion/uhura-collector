@@ -1,13 +1,13 @@
 {
-  "name": "expressapi",
-  "version": "1.0.0",
-  "description": "Starter Express API service app",
+  "name": "atomiq",
+  "version": "0.0.1",
+  "description": "Node.js Microservice",
   "keywords": [
-    "express",
+    "microservice",
+    "service",
     "api",
-    "service"
+    "express"
   ],
-  "private": true,
   "main": "app.js",
   "scripts": {
     "start": "node ./bin/server",
@@ -17,9 +17,9 @@
   },
   "author": "Tony Pujals (http://twitter.com/subfuzion)",
   "license": "ISC",
-  "homepage": "https://github.com/tonypujals/expressapp",
-  "repository": "https://github.com/tonypujals/expressapp.git",
-  "bugs": "https://github.com/tonypujals/expressapp/issues",
+  "homepage": "https://github.com/atomiqjs/atomiq",
+  "repository": "https://github.com/atomiqjs/atomiq.git",
+  "bugs": "https://github.com/atomiqjs/atomiq/issues",
   "devDependencies": {
     "mocha": "^2.1.0",
     "nock": "^0.59.1",
