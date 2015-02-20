@@ -1,17 +1,45 @@
+#!/usr/bin/env node
+
 var app = require('express')(),
     bodyParser = require('body-parser'),
+    Collector = require('./collector'),
     debug = require('debug')('app'),
+    express = require('express'),
     morgan = require('morgan'),
     path = require('path'),
-    routeloader = require('./lib/routeloader'),
-    routesDir = path.join(__dirname, 'routes');
+    publicDir = path.join(__dirname, 'public');
 
 module.exports = app;
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
-// for other body parsing middleware, see:
-// http://expressjs.com/4x/api.html#req.body
+app.use(express.static(publicDir));
 
-routeloader.load(app, routesDir);
+if (require.main === module) {
+  app.set('port', process.env.PORT || 3000);
 
+  var server = require('http').Server(app);
+  var io = require('socket.io')(server);
+
+  // attach socket.io to app
+  app.set('io', io);
+
+  io.on('connection', function (socket) {
+    console.log('new websocket connection');
+  });
+
+  server.listen(app.get('port'), function() {
+    debug('server started on port %s', server.address().port);
+    app.set('server', server);
+
+    // create an event collector and attach to app
+    var collector = new Collector(process.env.EVENTPORT || 5555);
+    app.set('collector', collector);
+
+    collector.on('event', function(data) {
+      io.emit('event', data);
+    });
+
+    collector.start();
+  });
+}

@@ -1,22 +1,29 @@
 var debug = require('debug')('app'),
-    uhura = require('uhura');
+    EventEmitter = require('events').EventEmitter,
+    uhura = require('uhura'),
+    util = require('util');
 
-exports.start = function (port) {
+module.exports = Collector;
+util.inherits(Collector, EventEmitter);
+
+function Collector(port) {
+  EventEmitter.call(this);
+  this.port = port;
+}
+
+Collector.prototype.start = function () {
   var server = uhura.createServer(function (client) {
     client.on('event', function (data) {
-      processEvent(data);
-    });
-  });
+      this.emit('event', data);
+    }.bind(this));
+  }.bind(this));
 
   server.on('listening', function () {
-    debug('collector listening on port ' + port);
-  });
+    debug('collector listening on port ' + this.port);
+    this.emit('listening', server);
+  }.bind(this));
 
-  server.listen(port);
+  server.listen(this.port);
   return server;
 };
-
-function processEvent(data) {
-  console.log(data);
-}
 
