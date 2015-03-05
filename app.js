@@ -6,14 +6,14 @@ var app = require('express')(),
     debug = require('debug')('app'),
     express = require('express'),
     morgan = require('morgan'),
-    path = require('path'),
-    publicDir = path.join(__dirname, 'public');
+    path = require('path');
 
 module.exports = app;
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
-app.use(express.static(publicDir));
+app.use('/bower_components', express.static(path.join(__dirname, 'bower_components')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 if (require.main === module) {
   app.set('port', process.env.PORT || 3000);

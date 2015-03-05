@@ -1,0 +1,20 @@
+{
+  "name": "uhura-collector",
+  "version": "0.0.1",
+  "homepage": "https://github.com/tonypujals/uhura-collector",
+  "authors": [
+    "Tony Pujals (https://twitter.com/subfuzion)"
+  ],
+  "license": "ISC",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.5"
+  }
+}
